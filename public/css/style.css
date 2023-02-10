@@ -1,0 +1,11 @@
+.btn {
+    background-color: #dbdbdb;
+    color: red;
+  }
+  .btn:hover,
+  .btn.active {
+    text-shadow: 0 1px 0 red;
+    background-color: red;
+    border-color: red;
+  }
+  
