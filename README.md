@@ -8,11 +8,11 @@ Welcome to Burp, a simple application that allows users to post, follow users, a
 
 
 ## Features
-    -User Authentication: users can sign up and log in to the application. <br>
-    -Message creation: users can create and post messages. <br>
-    -User Profiles: users have their own profile pages, displaying their messages. <br>
-    -Save features: users can like other posts. <br>
-    -Feed: users can view their feed, which consists of the messages/posts of the users they follow. <br>
+    -User Authentication: users can sign up and log in to the application. 
+    -Message creation: users can create and post messages. 
+    -User Profiles: users have their own profile pages, displaying their messages. 
+    -Save features: users can like other posts. 
+    -Feed: users can view their feed, which consists of the messages/posts of the users they follow. 
 
 
 ## Installation
