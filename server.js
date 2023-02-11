@@ -3,6 +3,11 @@ const express = require('express');
 const session = require('express-session');
 const expressHandlebars = require('express-handlebars');
 
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
+
+const app = express();
+
 // added by chris ridder for 2fa - 20230211123852
 // >
 const bodyParser = require("body-parser");
@@ -18,17 +23,8 @@ var db = new JsonDB(new Config("myDataBase", true, false, '/'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get("/api/2fa", (req,res) => {
-  res.json({ message: "Welcome to the two factor authentication exmaple" })
-});
 //  <
 // added by chris ridder for 2fa - 20230211123852
-
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-
-const app = express();
 
 const sessionInfo = {
   secret: 'session secret',
