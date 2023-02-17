@@ -1,7 +1,7 @@
 const User = require('./User')
-const User = require('./Games')
-const User = require('./Posts')
-const User = require('./Comments')
+const Games = require('./Games')
+const Posts = require('./Posts')
+const Comments = require('./Comments')
 
 
 

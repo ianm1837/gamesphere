@@ -6,15 +6,15 @@ class Games extends Model {}
 
 Games.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: FALSE,
-            autoIncrement: TRUE,
-            primaryKey: TRUE,
+      id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: FALSE,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
@@ -22,12 +22,16 @@ Games.init(
         },
         timestamp: {
             type: DataTypes.DATE,
-            allowNull: FALSE,
+            allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        content: {
+        title:{
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        description: {
             type: DataTypes.STRING,
-            allowNull: FALSE,
+            allowNull: false,
         },
         posts_id: {
           type: DataTypes.INTEGER,
@@ -40,9 +44,9 @@ Games.init(
     },
     {
         sequelize,
-        timestamps: FALSE,
-        freezeTableName: TRUE,
-        underscored: TRUE,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
         modelName: 'games'
     }
 );

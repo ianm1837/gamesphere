@@ -8,13 +8,13 @@ Comments.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: FALSE,
-            autoIncrement: TRUE,
-            primaryKey: TRUE,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: FALSE,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
@@ -22,27 +22,27 @@ Comments.init(
         },
         timestamp: {
             type: DataTypes.DATE,
-            allowNull: FALSE,
+            allowNull: false,
             defaultValue: DataTypes.NOW,
         },
         content: {
             type: DataTypes.STRING,
-            allowNull: FALSE,
+            allowNull: false,
         },
         post_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
           references: {
-            model: post,
+            model: 'posts',
             key: 'id',
           }
         }
     },
     {
         sequelize,
-        timestamps: FALSE,
-        freezeTableName: TRUE,
-        underscored: TRUE,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
         modelName: 'comments'
     }
 );

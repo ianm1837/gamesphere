@@ -4,7 +4,7 @@ const postDetailsRoutes = require('./post-details-routes.js');
 const postTopicsRoutes = require('./post-topics-routes.js');
 
 
-router.use('/', postDetailsRoutes);
-router.use('/', postTopicsRoutes);
+router.use('/details', postDetailsRoutes);
+router.use('/topics', postTopicsRoutes);
 
 module.exports = router;
