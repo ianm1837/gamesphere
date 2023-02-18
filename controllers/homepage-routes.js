@@ -1,34 +1,39 @@
 const router = require('express').Router();
 const { Post, User, Games} = require('../models');
 
-router.get('/', async (req, res) => {
-  try {
-    const dbDashboardData = await Games.findAll({
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
+// router.get('/', async (req, res) => {
+//   try {
+//     const dbDashboardData = await Games.findAll({
+//       include: [
+//         {
+//           model: User,
+//         },
+//       ],
+//     });
 
-    let games = dbDashboardData.map((games) => ({
-      title: games.title,
-      id: games.id,
-      content: games.description,
-      timestamp: games.timestamp,
-      user_id: games.user_id,
-      username: games.user.username,
-    }));
+//     let games = dbDashboardData.map((games) => ({
+//       title: games.title,
+//       id: games.id,
+//       content: games.description,
+//       timestamp: games.timestamp,
+//       user_id: games.user_id,
+//       username: games.user.username,
+//     }));
 
-    console.log('list of user games: ' + JSON.stringify(games));
-    res.render('home', {
-      games,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     console.log('list of user games: ' + JSON.stringify(games));
+//     res.render('home', {
+//       games,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+// 2fa
+router.get('/', async (req, res) =>{
+  res.render('test2fa')
+})
 
 router.get('/test', async (req, res) => {
   try {

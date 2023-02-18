@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2FA Website</title>
+</head>
+
+<body>
+    <h1>2FA Website</h1>
+    <div id="login-container">
+        <form id="login-form">
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input">
+            <br>
+            <label for="password-input">Password:</label>
+            <input type="password" id="password-input">
+            <br>
+            <input type="submit" id="login-button" value="Log In">
+        </form>
+    </div>
+    <div id="2fa-container" style="display: none;">
+        <form id="verification-form">
+            <label for="secret-input">Secret Key:</label>
+            <input type="text" id="secret-input" readonly>
+            <br>
+            <label for="token-input">Token:</label>
+            <input type="text" id="token-input">
+            <br>
+            <input type="submit" id="submit-button" value="Submit">
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/speakeasy@latest/dist/speakeasy.min.js"></script>
+<script src="/public/js/test2fa.js"></script>
+
+</html>
