@@ -2,16 +2,14 @@ const router = require('express').Router();
 
 const createAccountRoutes = require('./create-account');
 const loginRoutes = require('./login');
-const dashboardRoutes = require('./dashboard');
+const logoutRoutes = require('./logout');
 const preferencesRoutes = require('./preferences');
-const apiRoutes = require('./api');
 
-// you are here: /user
+// you are here: /user/api
 
 router.use('/create-account', createAccountRoutes);
 router.use('/login', loginRoutes);
-router.use('/dashboard', dashboardRoutes);
-router.use('/preferences', preferencesRoutes);
-router.use('/api', apiRoutes);
+router.use('/logout', logoutRoutes);
+router.use('/preferences', logoutRoutes);
 
 module.exports = router;
