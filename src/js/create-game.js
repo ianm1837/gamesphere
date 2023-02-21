@@ -24,9 +24,9 @@ const newGameFormHandler = async (event) => {
   }
 };
 
-let newGameButton = document.querySelector('.new-game-button') !== null;
+let newGameButton = document.querySelector('#new-game-button') !== null;
 if (newGameButton) {
   document
-    .querySelector('.new-game-button')
+    .querySelector('#new-game-button')
     .addEventListener('click', newGameFormHandler);
 }

@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const expressHandlebars = require('express-handlebars');
 const dbInit = require('./config/dbInit');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const multer = require('multer')
 
 const routes = require('./controllers');
 
@@ -13,10 +15,27 @@ const sequelize = require('./config/connection');
 const app = express();
 
 const sessionInfo = {
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.COOKIE_SECRET,
+  cookie: {
+    maxAge: 86400000, //24 hours in milliseconds
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
+
+var storage = multer.diskStorage({
+  destination: './public/game-images',
+  filename: function (req, file, callback) {
+
+  }
+  }
+)
 
 app.use(session(sessionInfo));
 

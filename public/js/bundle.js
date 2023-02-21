@@ -9,6 +9,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/add-game-button.js":
+/*!***********************************!*\
+  !*** ./src/js/add-game-button.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const deliverToast = __webpack_require__(/*! ./make-toast */ \"./src/js/make-toast.js\");\n\nconst addGameButtonHandler = async (event) => {\n  document.location.replace('/games/create-game');\n};\n\nlet addGameButton = document.querySelector('#add-game-button') !== null;\nif (addGameButton) {\n  document\n    .querySelector('#add-game-button')\n    .addEventListener('click', addGameButtonHandler);\n}\n\n\n//# sourceURL=webpack://project-two-group-six/./src/js/add-game-button.js?");
+
+/***/ }),
+
 /***/ "./src/js/create-account.js":
 /*!**********************************!*\
   !*** ./src/js/create-account.js ***!
@@ -35,7 +45,7 @@ eval("const deliverToast = __webpack_require__(/*! ./make-toast */ \"./src/js/ma
   \*******************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const deliverToast = __webpack_require__(/*! ./make-toast */ \"./src/js/make-toast.js\");\n\nconst newGameFormHandler = async (event) => {\n  event.preventDefault();\n\n  const title = document.querySelector('#new-game-title').value.trim();\n  const content = document.querySelector('#new-game-content').value.trim();\n  const timestamp = Date.now();\n\n  if (title && content) {\n    const response = await fetch('/games/api/create-game', {\n      method: 'POST',\n      body: JSON.stringify({ title, timestamp, content }),\n      headers: { 'Content-Type': 'application/json' },\n    });\n\n    if (response.ok) {\n      document.location.replace('/games/all-games');\n    } else {\n      response.json().then((data) => {\n        deliverToast(data.message);\n      });\n    }\n  }\n};\n\nlet newGameButton = document.querySelector('.new-game-button') !== null;\nif (newGameButton) {\n  document\n    .querySelector('.new-game-button')\n    .addEventListener('click', newGameFormHandler);\n}\n\n\n//# sourceURL=webpack://project-two-group-six/./src/js/create-game.js?");
+eval("const deliverToast = __webpack_require__(/*! ./make-toast */ \"./src/js/make-toast.js\");\n\nconst newGameFormHandler = async (event) => {\n  event.preventDefault();\n\n  const title = document.querySelector('#new-game-title').value.trim();\n  const content = document.querySelector('#new-game-content').value.trim();\n  const timestamp = Date.now();\n\n  if (title && content) {\n    const response = await fetch('/games/api/create-game', {\n      method: 'POST',\n      body: JSON.stringify({ title, timestamp, content }),\n      headers: { 'Content-Type': 'application/json' },\n    });\n\n    if (response.ok) {\n      document.location.replace('/games/all-games');\n    } else {\n      response.json().then((data) => {\n        deliverToast(data.message);\n      });\n    }\n  }\n};\n\nlet newGameButton = document.querySelector('#new-game-button') !== null;\nif (newGameButton) {\n  document\n    .querySelector('#new-game-button')\n    .addEventListener('click', newGameFormHandler);\n}\n\n\n//# sourceURL=webpack://project-two-group-six/./src/js/create-game.js?");
 
 /***/ }),
 
@@ -55,7 +65,7 @@ eval("const deliverToast = __webpack_require__(/*! ./make-toast */ \"./src/js/ma
   \*************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__(/*! ./login.js */ \"./src/js/login.js\")\n__webpack_require__(/*! ./logout.js */ \"./src/js/logout.js\")\n__webpack_require__(/*! ./create-account.js */ \"./src/js/create-account.js\")\n__webpack_require__(/*! ./create-comment.js */ \"./src/js/create-comment.js\")\n__webpack_require__(/*! ./create-game.js */ \"./src/js/create-game.js\")\n__webpack_require__(/*! ./create-post.js */ \"./src/js/create-post.js\")\n__webpack_require__(/*! ./make-toast.js */ \"./src/js/make-toast.js\")\n\n//# sourceURL=webpack://project-two-group-six/./src/js/index.js?");
+eval("__webpack_require__(/*! ./login.js */ \"./src/js/login.js\")\n__webpack_require__(/*! ./logout.js */ \"./src/js/logout.js\")\n__webpack_require__(/*! ./create-account.js */ \"./src/js/create-account.js\")\n__webpack_require__(/*! ./create-comment.js */ \"./src/js/create-comment.js\")\n__webpack_require__(/*! ./create-game.js */ \"./src/js/create-game.js\")\n__webpack_require__(/*! ./create-post.js */ \"./src/js/create-post.js\")\n__webpack_require__(/*! ./make-toast.js */ \"./src/js/make-toast.js\")\n__webpack_require__(/*! ./add-game-button.js */ \"./src/js/add-game-button.js\")\n\n//# sourceURL=webpack://project-two-group-six/./src/js/index.js?");
 
 /***/ }),
 
