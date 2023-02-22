@@ -1,5 +1,6 @@
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const sequelize = require('./connection');
 
 const sessionInfo = {
   secret: process.env.COOKIE_SECRET,
