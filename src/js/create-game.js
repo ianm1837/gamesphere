@@ -1,5 +1,7 @@
 const deliverToast = require('./make-toast');
 
+
+
 const createGameForm = document.getElementById('uploadForm');
 if (createGameForm) {
   createGameForm.addEventListener('submit', (event) => {

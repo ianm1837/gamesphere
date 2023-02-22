@@ -8,11 +8,23 @@ const storage = multer.diskStorage({
     cb(null, './public/game-images/');
   },
   filename: function (req, file, cb) {
-    const originalName = file.originalname.split('.')[0];
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    function generateRandomString(length) {
+      let result = '';
+      const characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+      for (let i = 0; i < length; i++) {
+        const charIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(charIndex);
+      }
+
+      return result;
+    }
+
+    let randomFileName = generateRandomString(32);
     const extension = file.originalname.split('.').pop();
 
-    cb(null, `${originalName}-${uniqueSuffix}.${extension}`);
+    cb(null, `${randomFileName}.${extension}`);
   },
 });
 
@@ -28,12 +40,18 @@ const uploads = multer({
 
 router.post('/', uploads.single('image'), (req, res, next) => {
   // req.file contains the uploaded file
-  // Games.create({
-  //   user_id: req.session.username,
-
-  // })
+  Games.create({
+    user_id: req.session.user_id,
+    title: req.body.newGameTitle,
+    description: req.body.newGameDescription,
+    game_image: req.file.filename,
+  });
 
   console.log('This is the file body object: ' + JSON.stringify(req.file));
+  console.log(
+    'This is the game title: ' + JSON.stringify(req.body.newGameTitle)
+  );
+  console.log('This is the game description: ' + req.body.newGameDescription);
 });
 
 module.exports = router;
