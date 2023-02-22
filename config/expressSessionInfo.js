@@ -1,3 +1,5 @@
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const sessionInfo = {
   secret: process.env.COOKIE_SECRET,
   cookie: {
