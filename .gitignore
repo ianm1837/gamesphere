@@ -6,3 +6,4 @@ package-lock.json
 db_data
 docker-compose.yml
 game-images
+heroku.env
