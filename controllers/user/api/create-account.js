@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       },
     });
 
-    console.log("Find user data: " + JSON.stringify(dbFindUserData))
+    console.log('Find user data: ' + JSON.stringify(dbFindUserData));
 
     // If username does not exist, create new user
     if (!dbFindUserData) {
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
           const dbNewUserData = await User.create({
             username: req.body.username,
             password: req.body.password,
-            twoFactor: 'placeholder'
+            twoFactor: 'placeholder',
           });
 
           req.session.save(() => {
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
             req.session.user_id = dbNewUserData.dataValues.id;
             req.session.loggedIn = true;
 
-            res.status(200).json(dbNewUserData);
+            res.status(200).redirect('/');
           });
         } catch (err) {
           console.log(err);

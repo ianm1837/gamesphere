@@ -6,5 +6,4 @@ const createGameRoutes = require('./create-game');
 
 router.use('/create-game', createGameRoutes);
 
-
 module.exports = router;

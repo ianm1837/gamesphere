@@ -5,12 +5,14 @@ const signupFormHandler = async (event) => {
 
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  const passwordConfirm = document.querySelector('#password-signup-confirm').value.trim();
+  const passwordConfirm = document
+    .querySelector('#password-signup-confirm')
+    .value.trim();
 
   if (username && password && passwordConfirm) {
-    if (password != passwordConfirm){
-      deliverToast('Passwords do not match!')
-      return
+    if (password != passwordConfirm) {
+      deliverToast('Passwords do not match!');
+      return;
     }
 
     const response = await fetch('/user/api/create-account', {
@@ -20,7 +22,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/games');
+      return;
     } else {
       response.json().then((data) => {
         deliverToast(data.message);
