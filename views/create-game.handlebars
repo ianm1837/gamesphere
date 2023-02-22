@@ -4,16 +4,16 @@
     <form id="uploadForm" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="post-title" class="form-label">Game Title</label>
-        <input id= "new-game-title" type="text" class="form-control" id="post-title" placeholder="Enter a title">
+        <input id= "new-game-title" type="text" class="form-control" name="newGameTitle" id="post-title" placeholder="Enter a title" required>
       </div>
 
         <div class="mb-3">
-        <input type= "file" name="image" class="form-control" id="files" multiple>
+        <input type= "file" name="image" class="form-control" id="files" required>
       </div>
 
       <div class="mb-3">
         <label for="post-content" class="form-label">Game Description</label>
-        <textarea class="form-control" id="post-content" rows="6" placeholder=""></textarea>
+        <textarea class="form-control" id="post-content" rows="6" placeholder="" name="newGameDescription" required></textarea>
       </div>
       <button id= "new-game-button" type="submit" class="btn btn-primary">Submit New Game</button>
     </form>
