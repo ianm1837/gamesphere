@@ -19,6 +19,14 @@ Posts.init(
                 key: 'id',
             },
         },
+        game_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'games',
+                key: 'id',
+            }
+        },
         timestamp: {
             type: DataTypes.DATE,
             allowNull: false,

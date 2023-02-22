@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "webpack",
+    "docker-dev-up": "docker-compose -f docker-compose.yml up -d",
+    "docker-dev-down": "docker-compose -f docker-compose.yml down"
   },
   "repository": {
     "type": "git",
@@ -23,12 +26,17 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^2.2.5",
-    "nodemon": "^2.0.20",
     "sequelize": "^6.3.5"
   },
   "bugs": {
     "url": "https://github.com/ianm1837/project-two-group-six/issues"
   },
-  "homepage": "https://github.com/ianm1837/project-two-group-six#readme"
+  "homepage": "https://github.com/ianm1837/project-two-group-six#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }

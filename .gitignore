@@ -3,3 +3,6 @@
 node_modules
 package-lock.json
 .vscode/settings.json
+db_data
+docker-compose.yml
+game-images

@@ -37,6 +37,9 @@ User.init(
                 len: [4],
             },
         },
+        followedGames: {
+            type: DataTypes.TEXT('long'),
+        }
     },
     {
         hooks: {

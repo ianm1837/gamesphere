@@ -25,6 +25,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Feed</a>
         </li>
+        {{#if loginStatus}}
         <li class="nav-item active">
           <a class="nav-link" href="#">Profile</a>
         </li>
@@ -32,13 +33,51 @@
           <a class="nav-link" href="#">Likes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Account</a>
+          <a class="nav-link" href="/user/dashboard">Dashboard</a>
         </li>
+        {{/if}}
+        </ul>
+        </div>
+        <div>
+          <ul class="navbar-nav">
+            {{#if loginStatus}}
+            <li class="nav-item">
+              <a id="add-game-button" href="/games/create-game" class="btn btn-primary">Add Game</a>
+            <li class="nav-item">
+              <a class="nav-link text-weight-bold">Hi, {{loggedInUser}}!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Account</a>
+            </li>
+            <li class="nav-item">
+              <a id="logout" class="nav-link" href="#">Logout</a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+              <a class="nav-link" href="/user/login">Login</a>
+            </li>
+            
+            {{/if}}
+          </ul>
+        </div>
       </ul>
     </div>
   </nav>
 
+  <div id="error-toast"
+    class="toast align-items-center text-bg-danger border-0 mt-1 w-50 top-0 start-50 translate-middle-x position-absolute"
+    role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div id="toast-body" class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
+
   {{{body}}}
+      <script src="/js/bundle.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
