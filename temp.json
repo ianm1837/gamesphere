@@ -1,15 +1,24 @@
 {
-  "id": 6,
+  "id": 1,
   "user_id": 1,
-  "timestamp": "2023-02-22T21:24:19.000Z",
-  "title": "Prey",
-  "description": "Prey is a scary game that takes place in space and is about weird aliens",
-  "game_image": "https://s3.ianm1837.com/gamesphere/fe1015ec-b022-4e61-8a76-d1b27ccdf346.jpg",
+  "game_id": 6,
+  "timestamp": "2023-02-23T01:23:08.000Z",
+  "title": "Test Post on Prey",
+  "content": "this is just a test post about prey",
   "user": {
     "id": 1,
     "username": "ianm1837",
     "password": "$2b$10$XauBZWsh.ApTxNDnZ6tKd.EXX5Iudzn2ZnPSH21PMuvYLCdWdg/ya",
     "twoFactor": "placeholder",
     "followedGames": null
-  }
+  },
+  "game": {
+    "id": 6,
+    "user_id": 1,
+    "timestamp": "2023-02-22T21:24:19.000Z",
+    "title": "Prey",
+    "description": "Prey is a scary game that takes place in space and is about weird aliens",
+    "game_image": "https://s3.ianm1837.com/gamesphere/fe1015ec-b022-4e61-8a76-d1b27ccdf346.jpg"
+  },
+  "comments": []
 }

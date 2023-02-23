@@ -5,42 +5,34 @@ const expressSession = require('express-session');
 const expressSessionInfo = require('./config/expressSessionInfo');
 const expressHandlebars = require('express-handlebars');
 const dbInit = require('./config/dbInit');
+const helpers = require('./helpers/index.js');
 
-// initialize the database
+// initialize the database if it doesn't exist
 dbInit();
 
 // import sequelize connection
 const sequelize = require('./config/connection');
 
+// initialize express app
 const app = express();
 
 // set up handlebars.js engine
 app.engine('handlebars', expressHandlebars());
 app.set('view engine', 'handlebars');
 
-const handlebars = expressHandlebars.create({});
+// import helpers from helpers/index.js and initialize handlebars
+expressHandlebars.create({ helpers: helpers });
 
-handlebars.handlebars.registerHelper('debug', function (optionalValue) {
-  console.log('Current Context');
-  console.log('====================');
-  console.log(this);
-  if (optionalValue) {
-    console.log('Value');
-    console.log('====================');
-    console.log(optionalValue);
-  }
-});
-
-// set up sessions
+// set up sessions (cookies)
 app.use(expressSession(expressSessionInfo));
 
-// set up routes
+// set up middleware and set routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-// turn on connection to db and server
+// turn on connection to database with sequelize and start express server
 sequelize.sync({ force: false }).then(() => {
   app.listen(process.env.PORT, () => console.log('Now listening'));
 });

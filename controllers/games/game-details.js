@@ -1,5 +1,5 @@
 // you are here: /games/details
-const { Games, User } = require('../../models');
+const { Games, User, Posts } = require('../../models');
 
 const router = require('express').Router();
 
@@ -22,12 +22,26 @@ router.get('/:id', async (req, res) => {
 
     const game = dbGameData.get({ plain: true });
 
+    const dbPostsData = await Posts.findAll({
+      where: {
+        game_id: req.params.id,
+      },
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+
+    const posts = dbPostsData.map((post) => post.get({ plain: true }));
+
     console.log('this is game: ' + JSON.stringify(dbGameData));
 
     res.render('games-details', {
       loggedInUser,
       loginStatus,
       game,
+      posts,
     });
   } catch (err) {
     console.log(err);
