@@ -28,9 +28,7 @@ async function signupFormHandler(event) {
       document.location.replace(data.url);
     });
   } else {
-    response.json().then((data) => {
-      deliverToast(data.message);
-    });
+    deliverToast("Unknown server error");
   }
 }
 
