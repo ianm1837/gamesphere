@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Posts, User, Games} = require('../models');
+const { Posts, User, Games } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
       username: games.user.username,
     }));
 
-    console.log('list of user games: ' + JSON.stringify(games));
     res.render('homepage', {
       games,
     });

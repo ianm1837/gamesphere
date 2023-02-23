@@ -17,14 +17,15 @@ router.get('/', async (req, res) => {
 
     const games = dbGamesData.map((game) => ({
       title: game.title,
+      id: game.id,
       description: game.description,
       game_image: game.game_image,
       user: game.user.username,
       timestamp: game.timestamp,
+      loginStatus: loginStatus,
     }));
 
-    console.log(JSON.stringify(games, null, 2));
-
+    console.log('games object: ' + JSON.stringify(games));
     res.render('all-games', {
       games,
       loginStatus,

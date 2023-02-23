@@ -9,3 +9,8 @@
     border-color: red;
   }
   
+  .game-image {
+    width: auto;
+    height: 25%;
+    object-fit: cover;
+  }

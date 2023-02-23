@@ -5,9 +5,12 @@ const postsRoutes = require('./posts');
 const userRoutes = require('./user');
 const gamesRoutes = require('./games');
 
-router.use('/', homeRoutes);
+router.get('/', (req, res) => {
+  res.redirect('/games');
+});
+
 router.use('/user', userRoutes);
 router.use('/posts', postsRoutes);
-router.use('/games', gamesRoutes)
+router.use('/games', gamesRoutes);
 
 module.exports = router;

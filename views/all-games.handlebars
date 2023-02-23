@@ -1,11 +1,32 @@
 <div class="container d-flex flex-column align-items-center">
   {{#each games as |game|}}
-  <div class="card mb-3 ml-3 mr-3 p-3 w-75">
-    <image class="card-img-top" src="/game-images/{{game.game_image}}" alt="Card image cap">
-    <h2 class="card-subtitle mb-2 text-muted fw-light border-bottom border-secondary ">
-      {{game.title}}
-    </h2>
-    <p id="" class="card-text">{{game.description}}</p>
+  <div class="card d-flex flex-column align-items-center mb-3 ml-3 mr-3 p-3 w-75">
+  <a class="text-decoration-none text-reset w-100" href="/games/details/{{game.id}}">
+      <image style="max-height: 40em;object-fit: contain;" class="card-img-top" src="{{game.game_image}}"
+        alt="Card image cap">
+      {{#if game.loginStatus}}
+      <div class="d-flex flex-row justify-content-between w-100 border-bottom border-secondary mt-3">
+        <h2 class="card-subtitle mb-2 text-reset text-muted fw-normal ">
+          {{game.title}}
+        </h2>  
+        <button class="btn btn-dark">
+          Follow
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart"
+            viewBox="0 0 16 16">
+            <path
+              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+          </svg>
+        </button>
+      </div>
+      {{else}}
+        <h2 class="card-subtitle mb-2 text-reset text-muted fw-normal mt-3">
+          {{game.title}}
+        </h2>
+      {{/if}}
+      <p id="" class="card-text mt-3">
+        {{game.description}}
+      </p>
+    </a>
   </div>
   {{/ each }}
 </div>
