@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 router.get('/:id', async (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/user/login');
   }
 
   let loginStatus = req.session.loggedIn;
