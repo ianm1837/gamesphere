@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
             req.session.user_id = dbNewUserData.dataValues.id;
             req.session.loggedIn = true;
 
-            res.status(200).redirect('/');
+            res.status(200).send();
           });
         } catch (err) {
           console.log(err);

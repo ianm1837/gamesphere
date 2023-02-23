@@ -1,10 +1,15 @@
 {
-  "fieldname": "image",
-  "originalname": "logo.png",
-  "encoding": "7bit",
-  "mimetype": "image/png",
-  "destination": "./public/game-images/",
-  "filename": "logo-1677043936505-239201215.png",
-  "path": "public/game-images/logo-1677043936505-239201215.png",
-  "size": 47226
+  "id": 6,
+  "user_id": 1,
+  "timestamp": "2023-02-22T21:24:19.000Z",
+  "title": "Prey",
+  "description": "Prey is a scary game that takes place in space and is about weird aliens",
+  "game_image": "https://s3.ianm1837.com/gamesphere/fe1015ec-b022-4e61-8a76-d1b27ccdf346.jpg",
+  "user": {
+    "id": 1,
+    "username": "ianm1837",
+    "password": "$2b$10$XauBZWsh.ApTxNDnZ6tKd.EXX5Iudzn2ZnPSH21PMuvYLCdWdg/ya",
+    "twoFactor": "placeholder",
+    "followedGames": null
+  }
 }

@@ -13,6 +13,7 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(JSON.stringify(response));
     if (response.ok) {
       document.location.replace('/games');
     } else {
@@ -23,9 +24,11 @@ const loginFormHandler = async (event) => {
   }
 };
 
-let loginButton = document.querySelector('#login-button') !== null;
-if (loginButton) {
+console.log('login.js loaded');
+
+let loginForm = document.querySelector('#login-form') !== null;
+if (loginForm) {
   document
-    .querySelector('#login-button')
-    .addEventListener('click', loginFormHandler);
+    .querySelector('#login-form')
+    .addEventListener('submit', loginFormHandler);
 }

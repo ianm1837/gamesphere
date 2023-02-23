@@ -22,6 +22,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      document.location.replace('/games');
       return;
     } else {
       response.json().then((data) => {
