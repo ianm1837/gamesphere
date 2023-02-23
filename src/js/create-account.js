@@ -36,7 +36,7 @@ async function signupFormHandler(event) {
 
 //check if the signup form exists
 //add event listener to the form submit if it does
-let signupForm = document.querySelector("#uploadForm") !== null;
+let signupForm = document.querySelector("#createAccountForm") !== null;
 if (signupForm) {
-  document.querySelector("#uploadForm").addEventListener("submit", signupFormHandler);
+  document.querySelector("#createAccountForm").addEventListener("submit", signupFormHandler);
 }

@@ -35,13 +35,13 @@ router.post("/", async (req, res) => {
 
       // set session variables
       // this creates the cookie
-      //redirect to dashboard when done
       req.session.save(() => {
         req.session.username = req.body.username;
         req.session.user_id = dbNewUserData.dataValues.id;
         req.session.loggedIn = true;
 
-        res.status(200).redirect("/user/dashboard");
+        // send the user the desired url as json
+        res.status(200).json({ url: "/user/dashboard" });
       });
     } catch (error) {
       // if there is an error, send it to the client and log it in the console
