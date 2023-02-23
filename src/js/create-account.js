@@ -1,40 +1,40 @@
-const deliverToast = require('./make-toast');
+const deliverToast = require("./make-toast");
 
-const signupFormHandler = async (event) => {
+async function signupFormHandler(event) {
   event.preventDefault();
 
-  const username = document.querySelector('#username-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-  const passwordConfirm = document
-    .querySelector('#password-signup-confirm')
-    .value.trim();
+  //get the values from the form
+  const username = document.querySelector("#username-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+  const passwordConfirm = document.querySelector("#password-signup-confirm").value.trim();
 
-  if (username && password && passwordConfirm) {
-    if (password != passwordConfirm) {
-      deliverToast('Passwords do not match!');
-      return;
-    }
-
-    const response = await fetch('/user/api/create-account', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/games');
-      return;
-    } else {
-      response.json().then((data) => {
-        deliverToast(data.message);
-      });
-    }
+  //check if the passwords match
+  if (password != passwordConfirm) {
+    deliverToast("Passwords do not match!");
+    return;
   }
-};
 
-let signupButton = document.querySelector('#signup-button') !== null;
-if (signupButton) {
-  document
-    .querySelector('#signup-button')
-    .addEventListener('click', signupFormHandler) !== null;
+  //send the data to the server
+  const response = await fetch("/user/api/create-account", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  //check the response status
+  //redirect if successful; url comes from express route
+  if (response.ok) {
+    return response.json().then((data) => {
+      document.location.replace(data.url);
+    });
+  } else {
+    deliverToast("Unknown server error");
+  }
+}
+
+//check if the signup form exists
+//add event listener to the form submit if it does
+let signupForm = document.querySelector("#createAccountForm") !== null;
+if (signupForm) {
+  document.querySelector("#createAccountForm").addEventListener("submit", signupFormHandler);
 }

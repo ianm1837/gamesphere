@@ -1,9 +1,9 @@
-const router = require('express').Router();
-const { User } = require('../../../models');
+const router = require("express").Router();
+const { User } = require("../../../models");
 
 // you are here: /user/api/login
-router.post('/', async (req, res) => {
-  console.log('what about here');
+router.post("/", async (req, res) => {
+  // Check the database to see if username already exists
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -11,38 +11,35 @@ router.post('/', async (req, res) => {
       },
     });
 
-    console.log('this is dbUserData: ' + JSON.stringify(dbUserData));
-
+    // If username does not exist, send error message
     if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+      res.status(400).json({
+        message: "Incorrect username or password. Please try again!",
+      });
     }
 
+    // check password against database
     const validPassword = await dbUserData.passwordCheck(req.body.password);
 
-    console.log('this is validPassword: ' + JSON.stringify(validPassword));
-
+    // if password is incorrect, send error message
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+      res.status(400).json({
+        message: "Incorrect username or password. Please try again!",
+      });
     }
 
+    // all good, log the user in
     // save user data in session
     req.session.save(() => {
       req.session.username = req.body.username;
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
-      console.log('this is req.session: ' + JSON.stringify(req.session));
-
-      res.status(200).send();
+      // send the user the desired url as json
+      res.status(200).json({ url: "/user/dashboard" });
     });
   } catch (err) {
-    console.log('am I here?');
+    // if there is an error, send it to the client and log it in the console
     console.log(err);
     res.status(500).json(err);
   }
