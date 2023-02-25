@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { User } = require("../../../models");
+const router = require('express').Router();
+const { User } = require('../../../models');
 
 // you are here: /user/api/create-account
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // Check the database to see if username already exists
     const dbFindUserData = await User.findOne({
@@ -14,14 +14,14 @@ router.post("/", async (req, res) => {
     // If username exists, send error message
     if (dbFindUserData) {
       res.status(400).json({
-        message: "Username already exists. Please try again!",
+        message: 'Username already exists. Please try again!',
       });
     }
 
     // If username or password is less than 8 characters, send error message
     if (req.body.username.length < 8 || req.body.password.length < 8) {
       res.status(400).json({
-        message: "Username and password must be at least 8 characters long. Please try again!",
+        message: 'Username and password must be at least 8 characters long. Please try again!',
       });
     }
 
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
       const dbNewUserData = await User.create({
         username: req.body.username,
         password: req.body.password,
-        twoFactor: "placeholder",
+        twoFactor: 'placeholder',
       });
 
       // set session variables
@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
         req.session.loggedIn = true;
 
         // send the user the desired url as json
-        res.status(200).json({ url: "/user/dashboard" });
+        res.status(200).json({ url: '/user/dashboard' });
       });
     } catch (error) {
       // if there is an error, send it to the client and log it in the console

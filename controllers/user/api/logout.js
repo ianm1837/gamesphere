@@ -4,10 +4,10 @@ const router = require('express').Router();
 router.post('/', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).json({ message: 'Logout success!' }).end();
+      res.status(204).json({ message: 'Logout success!', url: '/' });
     });
   } else {
-    res.status(404).json({ message: "You weren't logged in..." }).end();
+    res.status(404).json({ message: "You weren't logged in..." });
   }
 });
 

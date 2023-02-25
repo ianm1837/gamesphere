@@ -1,13 +1,13 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-router.get("/", (req, res) => {
-  // get the users login status and username
+// you are here: /user/login
+router.get('/', (req, res) => {
+  // set session variables to send to handlebars
   let loginStatus = req.session.loggedIn;
   let loggedInUser = req.session.username;
 
-  // render the login page with handlebars
-  // pass the login status and username to the template
-  res.render("login", {
+  // send the session variables to handlebars and render the page
+  res.render('login', {
     loginStatus,
     loggedInUser,
   });
