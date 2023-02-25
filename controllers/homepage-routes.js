@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Posts, User, Games } = require('../models');
 
+// you are here: /homepage
+// this is unused and can likely be removed
 router.get('/', async (req, res) => {
   try {
     const dbDashboardData = await Games.findAll({

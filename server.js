@@ -5,7 +5,7 @@ const expressSession = require('express-session');
 const expressSessionInfo = require('./config/expressSessionInfo');
 const expressHandlebars = require('express-handlebars');
 const dbInit = require('./config/dbInit');
-const helpers = require('./helpers/index.js');
+const debugHelper = require('./helpers/debugHelper');
 
 // initialize the database if it doesn't exist
 dbInit();
@@ -16,12 +16,12 @@ const sequelize = require('./config/connection');
 // initialize express app
 const app = express();
 
-// set up handlebars.js engine
-app.engine('handlebars', expressHandlebars());
-app.set('view engine', 'handlebars');
+// import helpers from helpers/ and initialize handlebars
+const hbs = expressHandlebars.create({ helpers: debugHelper });
 
-// import helpers from helpers/index.js and initialize handlebars
-expressHandlebars.create({ helpers: helpers });
+// set up handlebars.js engine
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // set up sessions (cookies)
 app.use(expressSession(expressSessionInfo));

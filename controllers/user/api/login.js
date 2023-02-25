@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { User } = require("../../../models");
+const router = require('express').Router();
+const { User } = require('../../../models');
 
 // you are here: /user/api/login
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   // Check the database to see if username already exists
   try {
     const dbUserData = await User.findOne({
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     // If username does not exist, send error message
     if (!dbUserData) {
       res.status(400).json({
-        message: "Incorrect username or password. Please try again!",
+        message: 'Incorrect username or password. Please try again!',
       });
     }
 
@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
     // if password is incorrect, send error message
     if (!validPassword) {
       res.status(400).json({
-        message: "Incorrect username or password. Please try again!",
+        message: 'Incorrect username or password. Please try again!',
       });
     }
 
@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
       req.session.loggedIn = true;
 
       // send the user the desired url as json
-      res.status(200).json({ url: "/user/dashboard" });
+      res.status(200).json({ url: '/user/dashboard' });
     });
   } catch (err) {
     // if there is an error, send it to the client and log it in the console

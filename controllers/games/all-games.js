@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
   let loginStatus = req.session.loggedIn;
   let loggedInUser = req.session.username;
 
+  // find all games and include the user data
   try {
     const dbGamesData = await Games.findAll({
       include: [
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
       ],
     });
 
+    // map the data to a new object
     const games = dbGamesData.map((game) => ({
       title: game.title,
       id: game.id,
@@ -25,7 +27,7 @@ router.get('/', async (req, res) => {
       loginStatus: loginStatus,
     }));
 
-    console.log('games object: ' + JSON.stringify(games));
+    // render the page with the data
     res.render('all-games', {
       games,
       loginStatus,
