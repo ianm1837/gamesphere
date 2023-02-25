@@ -1,32 +1,34 @@
 const deliverToast = require('./make-toast');
 
-const newPostFormHandler = async (event) => {
-  event.preventDefault();
+// gather form data and send it to the server as json
+const createPostForm = document.getElementById('postForm');
+if (createPostForm) {
+  createPostForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  const title = document.querySelector('#new-post-title').value.trim();
-  const content = document.querySelector('#new-post-content').value.trim();
-  const timestamp = Date.now();
+    // get the post data
+    const postTitle = document.getElementById('newPostTitle').value;
+    const postContent = document.getElementById('newPostContent').value;
+    const postGame = document.getElementById('newPostGame').dataset.game;
 
-  if (title && content) {
-    const response = await fetch('/posts/api/create-post', {
+    // send the post data to the server
+    fetch('/posts/api/create-post', {
       method: 'POST',
-      body: JSON.stringify({ title, timestamp, content }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/user/dashboard');
-    } else {
-      response.json().then((data) => {
-        deliverToast(data.message);
+      body: JSON.stringify({
+        postContent: postContent,
+        postTitle: postTitle,
+        postGame: postGame,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        // TODO: redirect the user to the post details page for the post they just created and remove console.log
+        console.log('Post created successfully!');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
-    }
-  }
-};
-
-let newPostButton = document.querySelector('.new-post-button') !== null;
-if (newPostButton) {
-  document
-    .querySelector('.new-post-button')
-    .addEventListener('click', newPostFormHandler);
+  });
 }
