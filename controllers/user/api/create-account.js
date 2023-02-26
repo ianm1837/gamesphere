@@ -13,16 +13,12 @@ router.post('/', async (req, res) => {
 
     // If username exists, send error message
     if (dbFindUserData) {
-      res.status(400).json({
-        message: 'Username already exists. Please try again!',
-      });
+      throw new Error('Incorrect username or password. Please try again!');
     }
 
     // If username or password is less than 8 characters, send error message
     if (req.body.username.length < 8 || req.body.password.length < 8) {
-      res.status(400).json({
-        message: 'Username and password must be at least 8 characters long. Please try again!',
-      });
+      throw new Error('Incorrect username or password. Please try again!');
     }
 
     // all good, create the user
@@ -50,7 +46,7 @@ router.post('/', async (req, res) => {
     }
   } catch (error) {
     // if there is an error, send it to the client and log it in the console
-    console.log(error);
+    console.log('WARNING: User entered wrong credentials');
     res.status(500).json(error);
   }
 });
