@@ -23,7 +23,7 @@ const commentFormHandler = async (event) => {
     } else {
       // otherwise, deliver a toast with the error message
       response.json().then((data) => {
-        deliverToast(data.message);
+        deliverToast(data);
       });
     }
   }
