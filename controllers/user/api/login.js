@@ -13,9 +13,7 @@ router.post('/', async (req, res) => {
 
     // If username does not exist, send error message
     if (!dbUserData) {
-      res.status(400).json({
-        message: 'Incorrect username or password. Please try again!',
-      });
+      throw new Error('Incorrect username or password. Please try again!');
     }
 
     // check password against database
@@ -23,9 +21,7 @@ router.post('/', async (req, res) => {
 
     // if password is incorrect, send error message
     if (!validPassword) {
-      res.status(400).json({
-        message: 'Incorrect username or password. Please try again!',
-      });
+      throw new Error('Incorrect username or password. Please try again!');
     }
 
     // all good, log the user in
@@ -38,10 +34,10 @@ router.post('/', async (req, res) => {
       // send the user the desired url as json
       res.status(200).json({ url: '/user/dashboard' });
     });
-  } catch (err) {
+  } catch (error) {
     // if there is an error, send it to the client and log it in the console
-    console.log(err);
-    // res.status(500).json(err);
+    console.log('WARNING: User entered wrong credentials');
+    res.status(500).json(error.message);
   }
 });
 
