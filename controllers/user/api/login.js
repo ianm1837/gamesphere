@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
   } catch (err) {
     // if there is an error, send it to the client and log it in the console
     console.log(err);
-    res.status(500).json(err);
+    // res.status(500).json(err);
   }
 });
 
