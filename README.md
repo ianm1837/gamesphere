@@ -6,26 +6,29 @@ This project was created to demonstrate an important milestone in our full-stack
 
 Welcome to GameSphere, a simple application that allows users to post, follow users, and view their feed. This project was created as a demonstration of the basic social media functionality, and as such includes features like authentication, message creation, display, and user likes and comments. 
 
-
-## Features
-    -User Authentication: users can sign up and log in to the application. 
-    -Game creation: users can create and post games. 
-    -User Profiles: users have their own profile pages, displaying their games. 
-    -Save features: users can like other posts. 
-    -Feed: users can view their feed, which consists of the games/posts of the users they follow. 
+Welcome to GameSphere, a one-stop destination for gamers and enthusiasts alike! We provide a collection of games and topics for you to explore and engage with. Whether you're a hardcore gamer or simply looking to learn more about the latest trends in the gaming industry, our platform offers something for everyone.
+With our user-friendly interface, you can easily navigate through the various categories, from action-packed games to strategy titles and everything in between. Additionally, you can leave comments on any game or topic that piques your interest, allowing you to engage in lively discussions and connect with like-minded individuals.
 
 
-## Installation
+Heroku page: https://floating-thicket-35501.herokuapp.com/
 
-Heroku page: https://
-
-## Usage
-
-
+![img](./public/images/login.jpg)
+![img](./public/images/Feed.jpg)
 
 ## Credits
 Technologies: <br>
-Additional Framework used: Bootstrap <br>
+Node js <br>
+Express <br>
+MySQL <br>
+S3 <br>
+Other Technologies <br>
+Sequelize <br>
+Handlebars <br>
+AWS SDK <br>
+Multer <br>
+Webpack <br>
+Heroku <br>
+Bootstrap 
 
 ## Developers
 
