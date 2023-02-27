@@ -1,91 +1,125 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
-<body>
-  <div class="container d-flex flex-column align-items-center h-100 mt-3">
-    <div class="card mb-3 p-3 w-75">
-      {{!-- <a href="/posts/view-post/{{post.id}}"></a> --}}
-  
-      {{debug posts}}
-  
-      <h3 id="post-title" data-post-number="{{game.id}}" class="card-title mt-5"> {{game.title}} </h3></a>
-      <h8 class="card-subtitle mb-2 text-muted fw-light border-bottom border-secondary ">
-        {{!-- {{post.timestamp}} --}}
-      </h8>
-      <p class="card-text">{{game.description}}</p>
+<body style="height: 100vh; background-color: currentColor;">
+    <nav>
+        <a class="container d-flex flex-column align-items-center h-100 mt-4" style="color:white; font-size: 3rem;"
+            href="#"> Comments</a>
+    </nav>
+    <div class="card mb-3 p-3 w-50" style="
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 18rem; 
+    margin: 0 auto; 
+    margin-top: .01rem;
+    border-width: .05rem;
+    background-color: currentColor;
+    border-color: currentColor">
+        <section class="py-sm-5">
+            <div>
+                <div class="card mb-4 navbar navbar-expand-lg navbar-dark bg-dark" style="width: 90%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin: 0 auto;
+                background-color: currentColor;
+                color: white;
+                ">
+                    <h2>{{game.title}}</h2>
+                    <p style="color:  #ced0d3;">{{game.description}}</p>
+                </div>
+            </div>
+            <div class="row row-cols-1" style="
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: rem;
+            margin: 0 auto;
+            background-color: currentColor;
+            ">
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;
+                border-width: 20rem;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <h6>@{{post.user.username}}</h6>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments01" name="Text01">
+                    </div>
+                </div>
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <h6>@{{post.user.username}</h6>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments02" name="Text02">
+                    </div>
+                </div>
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <p>@{{post.user.username}}</p>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments03" name="Text03">
+                    </div>
+                </div>
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <h6>@{{post.user.username}}</h6>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments04" name="Text04">
+                    </div>
+                </div>
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <h6>@{{post.user.username}}</h6>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments05" name="Text05">
+                    </div>
+                </div>
+                <div class="col-md-12" style=" background-color: #343a40;
+                color: white;">
+                    <div>
+                        <h6>{{post.title}}</h6>
+                    </div>
+                    <div class="card mb-4" style=" background-color: #343a40;
+                    color: #ced0d3;">
+                        <h6>@{{post.user.username}}</h6>
+                        <p>{{post.id}}</p>
+                        <input type="text" id="comments06" name="Text06">
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  
-    <div class="w-75 d-flex flex-column align-items-center">
-  
-  {{#each comments as |comment|}}
-  <div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <h6>@{{post.user.username}}</h6>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments01" name="Text01">
-    </div>
-</div>
-<div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <h6>@{{post.user.username}</h6>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments02" name="Text02">
-    </div>
-</div>
-<div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <p>@{{post.user.username}}</p>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments03" name="Text03">
-    </div>
-</div>
-<div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <h6>@{{post.user.username}}</h6>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments04" name="Text04">
-    </div>
-</div>
-<div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <h6>@{{post.user.username}}</h6>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments05" name="Text05">
-    </div>
-</div>
-<div class="col-md-12">
-    <div>
-        <h6>{{post.title}}</h6>
-    </div>
-    <div class="card mb-4">
-        <h6>@{{post.user.username}}</h6>
-        <p>{{post.id}}</p>
-        <input type="text" id="comments06" name="Text06">
-    </div>
-  {{/ each }}
 </body>
 </html>
